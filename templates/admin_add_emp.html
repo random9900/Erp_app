@@ -1,0 +1,34 @@
+{% include 'admin_header.html'%}
+
+<section>
+  <h1>Employee Registration Form</h1>
+  
+  <form  action="/save" method="post" class="form-details">
+    <label>Emp Id:</label>
+    <input type="text" name="empid" class="form-control ">
+
+    <label>Emp Name:</label> 
+    <input type="text" name="empname" class="form-control">
+    
+    <label>Emp Email:</label>
+    <input type="text" name="empemail" class="form-control" value="@gmail.com">
+    
+    <label>Emp Phone:</label> 
+    <input type="text" name="empphone" class="form-control">
+    
+    <label>Emp Designation:</label> 
+    <input type="text" name="empdesignation" class="form-control">
+    
+    <label>Emp Salary:</label> 
+    <input type="text" name="empsalary" class="form-control">
+
+    <label>Emp Gender:</label> 
+    <input type="text" name="empgender" class="form-control"><br>
+
+    <input type="submit" value="Register" class="btn btn-success" >
+  </form>
+
+    
+  </section>
+         
+  

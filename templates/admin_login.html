@@ -1,0 +1,22 @@
+{% include 'header.html'%}
+
+
+  <section >
+    <div class="label">
+      <h1>Admin Login</h1>
+    </div>
+    <hr>
+
+  <form class="form-details" action="/admin_dashboard" method="post">
+
+    <label>UserNane:</label>
+    <input type="text" name="un" class="form-control "> <br>
+    <label>Password:</label>
+    <input type="text" name="pw" class="form-control">  <br>
+    <input type="submit" value="LogIn" class="btn btn-success" >
+    <br>
+    <p style="color:rgb(233, 234, 240)">{{msg}}</p>
+   </form>
+  </section>
+         
+  

@@ -1,0 +1,51 @@
+{% include 'admin_header.html'%}
+
+<section>
+  <h1>Employee Profile</h1>
+
+  <form action="/admin_emp_update" method="post" class="form-details">
+    {% for i in data %}
+
+    <label>Emp Id:</label>
+    <input type="text" name="empid" value="{{i[0]}}" class="form-control" />
+
+    <label>Emp Name:</label>
+    <input type="text" name="empname" value="{{i[1]}}" class="form-control" />
+
+    <label>Emp Email:</label>
+    <input type="text" name="empemail" value="{{i[2]}}" class="form-control" />
+
+    <label>Emp Phone:</label>
+    <input type="text" name="empphone" value="{{i[3]}}" class="form-control" />
+
+    <label>Emp Designation:</label>
+    <input
+      type="text"
+      name="empdesignation"
+      value="{{i[4]}}"
+      class="form-control"
+    />
+
+    <label>Emp Salary:</label>
+    <input type="text" name="empsalary" value="{{i[5]}}" class="form-control" />
+
+    <label>Emp Gender:</label>
+    <input
+      type="text"
+      name="empgender"
+      value="{{i[6]}}"
+      class="form-control"
+    /><br />
+
+    
+    <input type="submit" value="Update" class="btn btn-success" />
+    <br>
+    <!-- <input type="submit" value="Delete" class="btn btn-danger" /> -->
+     <a href="/admin_delete_emp?id={{i[0]}}" class="btn btn-danger">Delete</a>
+    
+    
+    {% endfor %}
+  </form>
+</section>
+  
+ 

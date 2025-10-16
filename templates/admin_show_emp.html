@@ -1,0 +1,64 @@
+<style>
+table {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2;}
+tr:nth-child(odd){background-color: #473838;color: white;}
+
+tr:hover {background-color: #ddd;}
+
+th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+</style>
+{% include 'admin_header.html'%}
+
+
+<section>
+    
+      <h1>Show Employee</h1>
+      <table>
+         <tr>
+            <th>Emp ID</th>
+            <th>Emp Name</th>
+            <th>Emp Email</th>
+            <th>Phone</th>
+            <th>Emp Designation</th>
+            <!-- <th>Emp salary</th> -->
+            <!-- <th>Emp Gender</th> -->
+            <th></th>
+          </tr> 
+        {% for i in record %}
+         <tr>
+            <td>{{i[0]}}</td>
+            <td>{{i[1]}}</td>
+            <td>{{i[2]}}</td>
+            <td>{{i[3]}}</td>
+            <td>{{i[4]}}</td>
+            <!-- <td>{{i[5]}}</td> -->
+            <!-- <td>{{i[6]}}</td> -->
+            <td><a href="/admin_emp_profile?EmpId={{i[0]}}" class="btn btn-primary">view</td>
+          </tr>
+        {% endfor %}
+       
+ 
+ 
+  
+
+</table>
+    
+  </section>
+         
+  
