@@ -1,0 +1,18 @@
+# Ignore virtual environment folders
+venv/
+env/
+
+# Ignore Python cache
+__pycache__/
+*.pyc
+
+# Ignore uploaded images/files
+static/uploads/
+
+# Ignore temporary or log files
+*.log
+*.tmp
+
+# Ignore system/IDE folders
+.vscode/
+.DS_Store
