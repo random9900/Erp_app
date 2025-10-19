@@ -33,22 +33,25 @@ th {
          <tr>
             <th>Emp ID</th>
             <th>Emp Name</th>
-            <th>Emp Email</th>
+            <!-- <th>Emp Email</th> -->
             <th>Phone</th>
             <th>Emp Designation</th>
             <!-- <th>Emp salary</th> -->
             <!-- <th>Emp Gender</th> -->
-            <th></th>
+            <th>Images</th>
+            <th>Edit</th>
           </tr> 
         {% for i in record %}
          <tr>
             <td>{{i[0]}}</td>
             <td>{{i[1]}}</td>
-            <td>{{i[2]}}</td>
+            <!-- <td>{{i[2]}}</td> -->
             <td>{{i[3]}}</td>
             <td>{{i[4]}}</td>
             <!-- <td>{{i[5]}}</td> -->
             <!-- <td>{{i[6]}}</td> -->
+             <td><img src="/static/uploads/{{i[7]}}" width="80px"></td>
+
             <td><a href="/admin_emp_profile?EmpId={{i[0]}}" class="btn btn-primary">view</td>
           </tr>
         {% endfor %}

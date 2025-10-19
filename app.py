@@ -55,7 +55,7 @@ def admin_add_emp():
 @app.route('/admin_showemp')
 def admin_show_emp():
   cur = mysql.connection.cursor()
-  cur.execute('select emp_id,emp_name,emp_email,phone,designation,salary,gender from registration')
+  cur.execute('select emp_id,emp_name,emp_email,phone,designation,salary,gender,emp_img from registration')
   record = cur.fetchall()
   cur.close()
   return render_template('admin_show_emp.html',record = record)
@@ -82,9 +82,15 @@ def admin_search_process():
   data = cur.fetchall()
   cur.close()
   return render_template('admin_search_process.html',data = data)
+
+
+
+
 # -----> Insert
 
-@app.route('/save',methods=['post'])
+upload_folder = "/static/uploads/"
+
+@app.route('/save',methods=['POST'])
 def save():
   id = request.form['empid']
   name = request.form['empname']
@@ -93,20 +99,27 @@ def save():
   designation = request.form['empdesignation']
   salary = request.form['empsalary']
   gender = request.form['empgender']
+  image = request.files['empimg']
+  image.save(upload_folder + image.filename)
 
 # Database Connection Open
   cur = mysql.connection.cursor()
-
 #Query specification
-  cur.execute('insert into registration(emp_id,emp_name,emp_email,phone,designation,salary,gender) values(%s,%s,%s,%s,%s,%s,%s)',(id,name,email,phone,designation,salary,gender))
-
+  cur.execute('insert into registration(emp_id,emp_name,emp_email,phone,designation,salary,gender,emp_img) values(%s,%s,%s,%s,%s,%s,%s,%s)',(id,name,email,phone,designation,salary,gender,image.filename,))
 # transaction save/commit
   mysql.connection.commit()
-
   # Database connection close
   cur.close()
-
   return render_template('admin_emp_reg_success.html')
+
+
+
+
+
+
+
+
+
 
 # ------>  select
 
@@ -121,6 +134,12 @@ def admin_emp_list():
   data = cur.fetchall()
   cur.close()
   return render_template('admin_emp_profile.html', data = data)
+
+
+
+
+
+
 
 #------> Update
 
@@ -141,7 +160,13 @@ def admin_emp_update():
   cur.close()
   return render_template('admin_emp_update_success.html')
 
-# -----> delete
+
+
+
+
+
+
+# -----> Delete
 @app.route('/admin_delete_emp')
 def delete_employee():
   id = request.args['id']
@@ -152,12 +177,22 @@ def delete_employee():
   cur.close()
   return render_template('admin_delete_emp.html')
   # flash('Employee deleted successfully!', 'success')
-  return redirect(url_for('admin_show_emp'))
+  # return redirect(url_for('admin_show_emp'))
 
+
+
+
+
+# ---> Logout 
 
 @app.route('/logout')
 def logout():
   session["name"]="none"
   return render_template('admin_login.html')
 
-app.run(debug=True) 
+
+
+
+
+# app.run(debug=True) 
+if __name__ == "__main__": app.run(debug=True)

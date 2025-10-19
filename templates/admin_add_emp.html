@@ -3,7 +3,7 @@
 <section>
   <h1>Employee Registration Form</h1>
   
-  <form  action="/save" method="post" class="form-details">
+  <form  action="/save" method="POST" class="form-details" enctype="multipart/form-data">
     <label>Emp Id:</label>
     <input type="text" name="empid" class="form-control ">
 
@@ -24,6 +24,10 @@
 
     <label>Emp Gender:</label> 
     <input type="text" name="empgender" class="form-control"><br>
+    
+    <label>Upload Image:</label> 
+    <input type="file" name="empimg" class="form-control"><br>
+    
 
     <input type="submit" value="Register" class="btn btn-success" >
   </form>
